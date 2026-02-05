@@ -40,13 +40,12 @@ public class AppConfig {
             }
 
             // Seed test project
-            if (projectRepository.findById(1L).isEmpty()) {
+            if (projectRepository.findAll().isEmpty()) {
                 Project project = Project.builder()
-                        .id(1L)
                         .name("Test Project")
                         .description("A test project for Kanban")
                         .build();
-                projectRepository.save(project);
+                project = projectRepository.save(project);
 
                 // Seed test issues
                 Issue issue1 = Issue.builder()
