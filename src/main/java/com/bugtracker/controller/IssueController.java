@@ -19,7 +19,7 @@ public class IssueController {
     private final IssueService issueService;
 
     @PostMapping("/project/{projectId}")
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_MANAGER','ROLE_DEVELOPER')")
     public Issue createIssue(
             @PathVariable Long projectId,
             @RequestBody Issue issue,

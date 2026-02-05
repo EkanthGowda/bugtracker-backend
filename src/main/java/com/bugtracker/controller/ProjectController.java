@@ -17,7 +17,7 @@ public class ProjectController {
     private final ProjectService projectService;
 
     @PostMapping
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_MANAGER','ROLE_DEVELOPER')")
     public Project createProject(
             @RequestBody Project project,
             Authentication authentication) {
@@ -35,7 +35,7 @@ public class ProjectController {
     }
 
     @PostMapping("/{projectId}/add-member/{userId}")
-    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_MANAGER','ROLE_DEVELOPER')")
     public Project addMember(
             @PathVariable Long projectId,
             @PathVariable Long userId) {
